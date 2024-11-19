@@ -1,0 +1,31 @@
+# Bundle/Output
+node_modules
+dist
+dist-ssr
+*.local
+
+# Logs
+# here will be log files
+
+# Tests
+# here will be coverage
+
+# Local .env files
+.env
+.env.development
+.env.production
+
+/backend/.serverless/**/*
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
