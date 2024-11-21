@@ -2,7 +2,7 @@ import { BaseEntity } from '../../common/base.entity';
 import { CatGenderEnum } from '../enums/cat-gender.enum';
 import { v4 } from 'uuid';
 import { CatBreedEnum } from '../enums/cat-breed.enum';
-import { DYNAMODB_KEY_DELIMITER } from '../../util/constants';
+import { DYNAMODB_KEY_DELIMITER } from '../../utils/constants';
 
 export class CatEntity extends BaseEntity {
     public constructor(

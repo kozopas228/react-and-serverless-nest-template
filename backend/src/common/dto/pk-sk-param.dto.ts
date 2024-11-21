@@ -1,6 +1,6 @@
 import { IsString, Matches } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { PK_SK_REGEX } from '../../util/regexp';
+import { PK_SK_REGEX } from '../../utils/regexp';
 
 export class PkSkParamDto {
     @ApiProperty({
