@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+    BadRequestException,
+    Injectable,
+    NotFoundException, UnauthorizedException,
+} from '@nestjs/common';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
 import { BaseService } from '../common/base.service';
@@ -16,6 +20,7 @@ import { SesClientService } from '../aws/ses-client.service';
 import { DynamoDbClientService } from '../aws/dynamo-db-client.service';
 import { S3ClientService } from '../aws/s3-client.service';
 import { ConfigService } from '@nestjs/config';
+import * as chance from 'chance';
 
 @Injectable()
 export class CatsService extends BaseService {
@@ -50,6 +55,17 @@ export class CatsService extends BaseService {
     }
 
     public async findAll(): Promise<CatDto[]> {
+        const now = Date.now();
+
+        // artificial delay, to make loading in FE more visible
+        while (Date.now() < now + 1000) {}
+
+        if (chance.Chance().bool({ likelihood: 70 })) {
+            throw new UnauthorizedException(
+                'Test exception, for frontend test only',
+            );
+        }
+
         const command = new ScanCommand({
             TableName: this.configService.get('AWS_DYNAMODB_TABLE'),
             FilterExpression: 'ENTITY_TYPE = :type',

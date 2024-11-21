@@ -30,10 +30,10 @@ async function bootstrap(): Promise<Handler> {
                 directives: {
                     // used so Swagger can work in Production
                     defaultSrc: ["'self'"],
-                    scriptSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
-                    styleSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
-                    imgSrc: ["'self'", 'data:', 'https://cdnjs.cloudflare.com'],
-                    fontSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
+                    scriptSrc: ["'self'", 'cdnjs.cloudflare.com'],
+                    styleSrc: ["'self'", 'cdnjs.cloudflare.com', "'unsafe-inline'"],
+                    imgSrc: ["'self'", 'data:', 'cdnjs.cloudflare.com'],
+                    fontSrc: ["'self'", 'cdnjs.cloudflare.com'],
                 },
             },
         }),
