@@ -2,7 +2,6 @@
 
 This template provides a ready-to-use setup for building full-stack applications using **React** (with **Vite**) on the frontend and **NestJS** (deployed via **Serverless** Framework) on the backend. I created it for myself, so everything here is configured like I want but if you want to use it - feel free :)
 
----
 
 ## 🚀 Features
 * **Frontend**:
@@ -23,7 +22,6 @@ This template provides a ready-to-use setup for building full-stack applications
   * Single-command deployment scripts.
   * .env files for environment-based configurations.
 
----
 
 ## 🏗️ Architecture
 
@@ -31,7 +29,6 @@ The architecture is pretty straightforward, however for better understanding her
 
 ![architecture_diagram.png](docs/architecture_diagram.png)
 
----
 
 ## 🛠 Installation
 
@@ -49,7 +46,6 @@ Then you need to change some of my values to yours: enter in global search of yo
 
 ![change_names_sample.png](docs/change_names_sample.png)
 
----
 
 ## 💻 Development
 
@@ -69,7 +65,6 @@ npm run start
 ```
 This will launch the NestJS backend, You can access it at http://localhost:3001. Also, you can open **Swagger** at http://localhost:3001/docs.
 
----
 
 ## 🚢 Deployment
 
@@ -88,7 +83,6 @@ bash ./backend/deploy.sh
 
 For the future deployments simply run deploy commands.
 
----
 
 ## 📂 Project Structure
 ### Frontend
@@ -124,4 +118,3 @@ For the future deployments simply run deploy commands.
     ├── serverless.yml
     └── webpack.config.js
 
----
