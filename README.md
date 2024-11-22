@@ -42,7 +42,7 @@ cd ../frontend
 npm install
 ```
 
-Then you need to change some of my values to yours: enter in global search of your IDE `<change>`, then you'll find 8 values you need to change to yours:
+Then you need to change some of my values to yours: enter in global search of your IDE `<change>`, then you'll find 8 values you need to change to yours (some of them might not be available until your first deployment):
 
 ![change_names_sample.png](docs/change_names_sample.png)
 
