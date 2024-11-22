@@ -1,7 +1,8 @@
 import {
     BadRequestException,
     Injectable,
-    NotFoundException, UnauthorizedException,
+    NotFoundException,
+    UnauthorizedException,
 } from '@nestjs/common';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
@@ -38,6 +39,11 @@ export class CatsService extends BaseService {
         );
     }
     public async create(createCatDto: CreateCatDto): Promise<CatDto> {
+        const now = Date.now();
+
+        // artificial delay, to make loading in FE more visible
+        while (Date.now() < now + 1000) {}
+
         const entity = CatEntity.build(
             createCatDto.name,
             createCatDto.gender,
@@ -60,7 +66,7 @@ export class CatsService extends BaseService {
         // artificial delay, to make loading in FE more visible
         while (Date.now() < now + 1000) {}
 
-        if (chance.Chance().bool({ likelihood: 70 })) {
+        if (chance.Chance().bool({ likelihood: 30 })) {
             throw new UnauthorizedException(
                 'Test exception, for frontend test only',
             );

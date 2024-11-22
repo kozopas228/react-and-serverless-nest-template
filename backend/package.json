@@ -2,8 +2,6 @@
   "private": true,
   "scripts": {
     "build": "nest build",
-    "deploy:dev": "nest build --webpack && sls deploy --stage development",
-    "deploy:prod": "nest build --webpack && sls deploy --stage production",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest build && sls offline --stage development --httpPort 3001",
     "start:dev": "",
