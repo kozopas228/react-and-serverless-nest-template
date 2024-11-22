@@ -3,7 +3,7 @@ Resources:
   StaticSiteBucket: # ANOTHER bucket, for static hosting only. Do not use here your existing bucket from backend.
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: react-and-serverless-nest-template-bucket-static # <change> this to yours
+      BucketName: react-and-serverless-nest-template-bucket-static # <change> this to yours remember, this is a NEW bucket, only for static site
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
