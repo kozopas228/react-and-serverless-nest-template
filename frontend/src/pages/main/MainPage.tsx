@@ -23,6 +23,7 @@ import CatGenderCombobox from '@/pages/main/CatGenderCombobox.tsx';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Cat, createNewCat, fetchCats } from '@/services/cats.ts';
 import { Skeleton } from '@/shadcn/components/ui/skeleton.tsx';
+import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
     name: z
@@ -80,7 +81,7 @@ const MainPage = () => {
             `Submitting the form with the data: ${JSON.stringify(values)}`
         );
 
-        mutation.mutate(values as Cat);
+        await mutation.mutateAsync(values as Cat);
     }
 
     async function handleFetch(): Promise<void> {
@@ -105,7 +106,7 @@ const MainPage = () => {
         <div>
             <div className='mb-32 grid h-auto grid-cols-12 gap-4'>
                 <div className='col-span-12 mb-16 lg:col-span-4'>
-                    <h1 className='mb-8 text-4xl font-extrabold tracking-tight'>
+                    <h1 className='mb-8 h-16 text-4xl font-extrabold tracking-tight'>
                         React-hook-form example
                     </h1>
                     <Form {...form}>
@@ -177,13 +178,20 @@ const MainPage = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button type='submit'>Submit</Button>
+                            {mutation.isPending ? (
+                                <Button disabled>
+                                    <Loader2 className='animate-spin' />
+                                    Please wait
+                                </Button>
+                            ) : (
+                                <Button type='submit'>Submit</Button>
+                            )}
                         </form>
                     </Form>
                 </div>
 
                 <div className='col-span-12 mb-16 lg:col-span-3'>
-                    <h1 className='mb-8 text-4xl font-extrabold tracking-tight'>
+                    <h1 className='mb-8 h-16 text-4xl font-extrabold tracking-tight'>
                         Redux usage
                     </h1>
                     <div className='rounded border border-cyan-600 p-2'>
@@ -207,7 +215,7 @@ const MainPage = () => {
                 </div>
 
                 <div className='col-span-12 mb-16 lg:col-span-5'>
-                    <h1 className='mb-8 text-4xl font-extrabold tracking-tight'>
+                    <h1 className='mb-8 h-16 text-4xl font-extrabold tracking-tight'>
                         React Query usage
                     </h1>
                     <div className='rounded border border-cyan-600 p-2'>
@@ -228,7 +236,7 @@ const MainPage = () => {
                             <div className={'mt-4'}>
                                 {cats.map((cat) => (
                                     <div
-                                        className='mb-2 rounded bg-gray-100 p-1 px-3'
+                                        className='mb-2 rounded bg-gray-100 p-1 px-3 text-black'
                                         key={cat.PK}>
                                         {cat.name}, <i>{cat.breed}</i>{' '}
                                         <b>{cat.gender}</b>

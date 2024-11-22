@@ -26,6 +26,11 @@ import { CatDto } from './dto/cat.dto';
 export class CatsController {
     constructor(private readonly catsService: CatsService) {}
 
+    @Get('test')
+    public test(): string {
+        return process.env.FRONTEND_URL ?? '';
+    }
+
     @ApiOperation({ summary: 'Get all cats' })
     @ApiOkResponse({
         description: 'Successful entities retrieval',

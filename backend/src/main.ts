@@ -38,15 +38,18 @@ async function bootstrap(): Promise<Handler> {
             },
         }),
     );
+
+    app.enableCors({
+        origin: [process.env.FRONTEND_URL ?? ''],
+        credentials: true,
+    });
+
     app.useGlobalPipes(new ValidationPipe());
     app.setGlobalPrefix('api');
 
     // used for increasing limit of objects
     app.use(json({ limit: '50mb' }));
     app.use(urlencoded({ extended: true, limit: '50mb' }));
-
-    app.setGlobalPrefix('api');
-    app.useGlobalPipes(new ValidationPipe());
 
     addSwagger(app, isProduction);
 
