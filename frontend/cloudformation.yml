@@ -1,4 +1,10 @@
 AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  AppTagValue:
+    Type: String
+    Default: nest-lambda-project # <change> tag for AWS billing
+
 Resources:
   StaticSiteBucket: # ANOTHER bucket, for static hosting only. Do not use here your existing bucket from backend.
     Type: AWS::S3::Bucket
@@ -12,6 +18,9 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: index.html
+      Tags:
+        - Key: "app"
+          Value: !Ref AppTagValue
     DeletionPolicy: Delete
 
   BucketPolicy:
@@ -56,6 +65,9 @@ Resources:
             Cookies:
               Forward: none
         Enabled: true
+      Tags:
+        - Key: "app"
+          Value: !Ref AppTagValue
 
 Outputs:
   S3BucketName:

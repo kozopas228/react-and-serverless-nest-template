@@ -7,7 +7,7 @@ import prettierPlugin from 'eslint-plugin-prettier/recommended';
 import reactQueryPlugin from '@tanstack/eslint-plugin-query';
 
 export default tseslint.config(
-    { ignores: ['dist', 'src/shadcn'] },
+    { ignores: ['dist', 'src/shadcn', 'eslint.config.js', 'vite.config.ts', 'src/vite-env.d.ts', 'tailwind.config.js'] },
     {
         extends: [js.configs.recommended, ...tseslint.configs.recommended, prettierPlugin],
         files: ['**/*.{ts,tsx}', 'eslint.config.js'],
