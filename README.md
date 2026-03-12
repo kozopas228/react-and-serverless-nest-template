@@ -2,7 +2,7 @@
 
 This template provides a ready-to-use setup for building full-stack applications using **React** (with **Vite**) on the frontend and **NestJS** (deployed via **Serverless** Framework) on the backend. I created it for myself, so everything here is configured like I want but if you want to use it - feel free :)
 
-*WARNING!!!* This project doesn't use the best practices of AWS security regarding public access to S3. It shows the simplest and cheapest way to create such kind of applications, but consider using a more secure approach in real applications.
+*WARNING!!!* This project doesn't use the best practices of AWS security regarding public access to S3, anti-DDoS to API Gateway, and overall economic DDoS. It shows the simplest and cheapest way to create such kind of applications, but consider using a more secure approach in real-world applications.
 
 
 ## 🚀 Features
